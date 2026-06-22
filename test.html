@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Test GembaShot</title>
+</head>
+<body style="background:#0F1117;color:#00C896;font-family:monospace;padding:40px">
+  <h1>Test 1 — HTML puro ✓</h1>
+  <div id="test2">Test 2 — JavaScript...</div>
+  <div id="test3">Test 3 — React...</div>
+  <div id="test4">Test 4 — Babel...</div>
+  <div id="errors" style="color:#EF4444;margin-top:20px"></div>
+
+<script>
+  document.getElementById('test2').innerHTML = 'Test 2 — JavaScript ✓';
+  window.onerror = function(msg,src,line,col,err){
+    document.getElementById('errors').innerHTML += '<br>ERRORE: '+msg+' (linea '+line+')';
+  };
+</script>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin
+  onload="document.getElementById('test3').innerHTML='Test 3 — React ✓'"
+  onerror="document.getElementById('test3').innerHTML='Test 3 — React FALLITO ✗'">
+</script>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin
+  onload="document.getElementById('test4').innerHTML='Test 4 — Babel ✓'"
+  onerror="document.getElementById('test4').innerHTML='Test 4 — Babel FALLITO ✗'">
+</script>
+
+</body>
+</html>
